@@ -1,0 +1,11 @@
+{
+    "id": "command_exporter",
+    "version": "1.0.0",
+    "name": "MCDR Command Exporter",
+    "description": "A plugin is used to export the MCDR command tree",
+    "author": "DancingSnow",
+    "link": "https://github.com/MCDReforged/MCDReforged-ExamplePlugin",
+    "dependencies": {
+        "mcdreforged": ">=2.7.0"
+    }
+}
