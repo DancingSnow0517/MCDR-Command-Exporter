@@ -76,7 +76,7 @@ def on_load(server: PluginServerInterface, prev_module):
     global mcdr_server
     global config
     mcdr_server = server._mcdr_server
-    config = server.load_config_simple(file_name="command_exporter.json", in_data_folder=False, target_class=Config)
+    config = server.load_config_simple(file_name="config/command_exporter.json", in_data_folder=False, target_class=Config)
 
     get_node_json(config.node_path)
 
