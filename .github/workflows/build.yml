@@ -1,0 +1,42 @@
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        python: [ 3.8 ]
+        os: [ ubuntu-20.04 ]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v3.1.0
+      - name: Setup Python ${{ matrix.python }}
+        uses: actions/setup-python@v4.5.0
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/cache@v3.0.11
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install mcdreforged -U
+      - name: Build MCDR plugin
+        run : |
+          python -m mcdreforged pack -i command_exporter
+      - name: Find correct plugin
+        id: find_plugin
+        run : |
+          output="$(find ./ -name "*.mcdr" -type f -printf "%f\n")"
+          echo "plugin_name=$output" >> $GITHUB_OUTPUT
+      - name: capture build artifacts
+        uses: actions/upload-artifact@v3.1.1
+        with:
+          name: ${{ steps.find_plugin.outputs.plugin_name }}
+          path: ./${{ steps.find_plugin.outputs.plugin_name }}
