@@ -4,7 +4,7 @@
     "name": "MCDR Command Exporter",
     "description": "A plugin is used to export the MCDR command tree",
     "author": "DancingSnow",
-    "link": "https://github.com/MCDReforged/MCDReforged-ExamplePlugin",
+    "link": "https://github.com/DancingSnow0517/MCDR-Command-Exporter",
     "dependencies": {
         "mcdreforged": ">=2.7.0"
     }
