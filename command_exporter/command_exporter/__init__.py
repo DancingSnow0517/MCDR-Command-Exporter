@@ -87,6 +87,8 @@ def on_load(server: PluginServerInterface, prev_module):
         server.logger.debug('on_plugin_registry_changed')
         old_on_plugin_registry_changed()
         get_node_json(config.node_path)
+        # call mod reload command when registry changed
+        server.execute('mcdrc reload')
 
     mcdr_server.on_plugin_registry_changed = new_on_plugin_registry_changed
 
