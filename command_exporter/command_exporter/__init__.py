@@ -2,6 +2,7 @@ import json
 import os.path
 from enum import Enum
 from pathlib import Path
+from typing import Callable
 
 from mcdreforged.command.builder.nodes.arguments import Number, Integer, Float, Text, QuotableText, GreedyText, Boolean, \
     Enumeration
@@ -14,6 +15,7 @@ from .config import Config
 
 mcdr_server: MCDReforgedServer
 config: Config
+old_on_plugin_registry_changed: Callable
 
 class NodeTypes(Enum):
     LITERAL = Literal
@@ -81,6 +83,7 @@ def on_load(server: PluginServerInterface, prev_module):
     get_node_json(config.node_path)
 
     # Call register when register command
+    global old_on_plugin_registry_changed
     old_on_plugin_registry_changed = mcdr_server.on_plugin_registry_changed
 
     def new_on_plugin_registry_changed():
@@ -90,3 +93,5 @@ def on_load(server: PluginServerInterface, prev_module):
 
     mcdr_server.on_plugin_registry_changed = new_on_plugin_registry_changed
 
+def on_unload(server: PluginServerInterface):
+    mcdr_server.on_plugin_registry_changed = old_on_plugin_registry_changed
