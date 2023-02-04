@@ -1,6 +1,6 @@
 {
     "id": "command_exporter",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "name": "MCDR Command Exporter",
     "description": "A plugin is used to export the MCDR command tree",
     "author": "DancingSnow",
