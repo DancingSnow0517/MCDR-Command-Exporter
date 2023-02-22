@@ -1,3 +1,5 @@
+English | [中文](README-CN.MD)
+
 # MCDR Command Exporter
 
 A plugin is used to export the MCDR command tree.
@@ -11,7 +13,7 @@ Get client completion with mod [MCDR-Completion](https://github.com/DancingSnow0
 
 2. Download fabric mod [MCDR-Completion](https://github.com/DancingSnow0517/MCDR-Completion/releases) and install it to `Server` and `Client`
 
-   This mod requires [fabric-api](https://modrinth.com/mod/fabric-api) and [Cloth Config API](https://modrinth.com/mod/cloth-config)
+   This mod requires [fabric-api](https://modrinth.com/mod/fabric-api)
 
 3. Join the server and enjoy it! 
 
