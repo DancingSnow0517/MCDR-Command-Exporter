@@ -1,4 +1,4 @@
-English | [中文](command_exporter/README-CN.MD)
+English | [中文](README-CN.MD)
 
 # MCDR Command Exporter
 
