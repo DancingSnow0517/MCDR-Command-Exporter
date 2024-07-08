@@ -4,12 +4,12 @@ from enum import Enum
 from pathlib import Path
 from typing import Callable
 
-from mcdreforged.command.builder.nodes.arguments import Number, Integer, Float, Text, QuotableText, GreedyText, Boolean, \
+from mcdreforged.api.command import Number, Integer, Float, Text, QuotableText, GreedyText, Boolean, \
     Enumeration
-from mcdreforged.command.builder.nodes.basic import Literal, AbstractNode
+from mcdreforged.api.command import Literal, AbstractNode
 from mcdreforged.mcdr_server import MCDReforgedServer
 from mcdreforged.plugin.plugin_registry import PluginCommandHolder
-from mcdreforged.plugin.server_interface import PluginServerInterface
+from mcdreforged.api.types import PluginServerInterface
 
 from .config import Config
 
